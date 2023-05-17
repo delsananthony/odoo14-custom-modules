@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- stock_count_tag tree view -->
+    <record id="stock_count_tag_view_tree" model="ir.ui.view">
+        <field name="name">stock_count_tag.view.tree</field>
+        <field name="model">stock.count.tag</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="location"/>
+                <field name="count"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- stock.count.tag form view -->
+    <record id="stock_count_tag_view_form" model="ir.ui.view">
+        <field name="name">stock.count.tag.view.form</field>
+        <field name="model">stock.count.tag</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="%(count_tag_wizard_action)d" string="Count Tag" type="action" context="{'default_stock_count_tag_id': active_id}" invisible="1" />
+                    <!-- <button name="action_gen_ranges" string="Generate Ranges" type="object"/> -->
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="location"/>
+                            <field name="count"/>
+                        </group>
+                        <group>
+                            <field name="company_id"/>
+                        </group>
+                    </group>
+                    <group name="range" string="">
+                        <notebook>
+                            <page name="ranges" string="Ranges">
+                                <group>
+                                    <field name="line_ids" nolabel="1" options="{'no_open':True}">
+                                        <tree>
+                                            <field name="id" invisible="1"/>
+                                            <field name="stock_count_tag_id" invisible="1"/>
+                                            <field name="range_value" invisible="1"/>
+                                            <field name="ranges"/>
+                                            <field name="state"/>
+                                            <button name="%(count_tag_wizard_action)d" class="fa fa-file-pdf-o" type="action" context="{'default_stock_count_tag_id': stock_count_tag_id, 'default_ranges': id}"/>
+                                            <field name="attachment" filename="filename" widget="binary"/>
+                                            <field name="filename" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- stock.count.tag action window -->
+    <record id="stock_count_tag_action" model="ir.actions.act_window">
+        <field name="name">Count Tag</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.count.tag</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+            <p>
+                <!-- More details about what a user can do with this object will be OK -->
+            </p>
+        </field>
+    </record>
+
+</odoo>

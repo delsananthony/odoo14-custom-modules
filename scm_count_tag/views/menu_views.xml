@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <menuitem name="SCM Count Tag" id="scm_menu_stock_count_tag_report" sequence="1" web_icon="scm_count_tag,static/description/icon.png" groups="scm_count_tag.scm_count_tag_admin,scm_count_tag.scm_count_tag_user"/>
+
+    <menuitem name="Count Tag" id="scm_menu_count_tag_main_report" parent="scm_menu_stock_count_tag_report" action="scm_count_tag.stock_count_tag_action" sequence="2" groups="scm_count_tag.scm_count_tag_admin,scm_count_tag.scm_count_tag_user"/>
+
+</odoo>

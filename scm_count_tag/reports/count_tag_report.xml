@@ -1,0 +1,1813 @@
+<odoo>
+
+    <record id="paperformat_count_tag" model="report.paperformat">
+        <field name="name">Count Tag Format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False" />
+        <field name="dpi">90</field>
+    </record>
+
+    <!-- <delete id="view_pdc_monitoring_report" model="ir.actions.report"/> -->
+    <!-- <field name="name">Count Tag</field>
+        <field name="model">scm.product.tmp</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scm_product.count_tag</field>
+        <field name="report_file">scm_product.count_tag</field>
+        <field name="paperformat_id" ref="paperformat_count_tag" />
+        <field name="binding_model_id" ref="scm_product.model_scm_product_tmp"/>
+        <field name="binding_type">report</field>
+    </record> -->
+
+    <record id="report_count_tag" model="ir.actions.report">
+        <field name="name">Count Tag</field>
+        <field name="model">count.tag.transient</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">scm_count_tag.count_tag</field>
+        <field name="report_file">scm_count_tag.count_tag</field>
+        <field name="print_report_name">Count Tag</field>
+        <field name="binding_model_id" ref="model_count_tag_transient" />
+        <field name="binding_type">report</field>
+        <!-- <field name="attachment">'CT-Count Tag'.pdf</field> -->
+    </record>
+
+    <template id="count_tag">
+        <t t-call="web.html_container">
+            <t t-foreach="records" t-as="rec">
+                <t t-call="scm_count_tag.count_tag_doc" />
+            </t>
+        </t>
+    </template>
+
+    <template id="count_tag_doc">
+        <div class="article o_report_layout_standard">
+            <!-- <div class="page"> -->
+            <style type="text/css">
+		table,tr,td,p { font-family: Times New Roman; font-size: 9.5pt;}
+		                                                                                                                                                                <!-- table,tr,td,p { font-family: Times New Roman; font-size: x-small;} -->
+            </style>
+
+            <table cellspacing="0" border="0" style="width: 100%;">
+
+                <!-- <colgroup width="11"></colgroup>
+	<colgroup width="96"></colgroup>
+	<colgroup width="42"></colgroup>
+	<colgroup width="149"></colgroup>
+	<colgroup width="103"></colgroup>
+	<colgroup width="131"></colgroup>
+	<colgroup width="73"></colgroup>
+	<colgroup width="49"></colgroup>
+	<colgroup width="131"></colgroup>
+	<colgroup width="20"></colgroup> -->
+
+                <colgroup style="width: 1.37%;"></colgroup>
+                <colgroup style="width: 11.93%;"></colgroup>
+                <colgroup style="width: 5.22%;"></colgroup>
+                <colgroup style="width: 18.51%;"></colgroup>
+                <colgroup style="width: 12.8%;"></colgroup>
+                <colgroup style="width: 16.27%;"></colgroup>
+                <colgroup style="width: 9.07%;"></colgroup>
+                <colgroup style="width: 6.09%;"></colgroup>
+                <colgroup style="width: 17.26%;"></colgroup>
+                <colgroup style="width: 2.48%;"></colgroup>
+
+                <tr>
+                    <td style="border-top: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000; font-family: Times New Roman; color:#000000" colspan="10" height="27" align="center" valign="bottom">MUTI GROUP OF COMPANIES</td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="10" height="28" align="center" valign="top">
+                        <font face="Times New Roman" color="#000000">Osmena Street, Koronadal City, South Cotabato</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="10" height="38" align="center" valign="middle">
+                        <b>
+                            <font face="Times New Roman" color="#000000">                                                                      INVENTORY COUNT TAG                                                               3rd/Bin copy</font>
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="27" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <!-- <td align="left" valign="bottom"><font face="Times New Roman" color="#000000">Branch: ____________</font></td> -->
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">Branch:<t t-esc="rec.get('branch_name', '')" />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="right" valign="middle">
+                        <font face="Times New Roman" color="#000000">Tag No.:</font>
+                    </td>
+                    <!-- <td align="left" valign="bottom" sdnum="1033;0;0000"><font face="Times New Roman" color="#000000">_______________________<br /></font></td> -->
+                    <td align="left" valign="bottom" sdnum="1033;0;0000">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="rec.get('tag_no', '')" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="14" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="right" valign="bottom">
+                        <font face="Times New Roman" color="#000000">Shelf No.:</font>
+                    </td>
+                    <td align="left" valign="bottom" sdnum="1033;0;0000">
+                        <font face="Times New Roman" color="#000000">_______________________<br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="12" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Barcode</font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Product Description</font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Part No.</font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Unit</font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Actual count</font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <!--UPDATED TABLE ROW: MUST MULTIPLY TO OTHER-->
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="30" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="center">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="rec.get('barcode', '')" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 1px solid #000000" colspan="3" align="center" valign="center">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="'{}-{}'.format(rec.get('brand', '-'),rec.get('name', ''))" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="center">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="rec.get('part_number', '')" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="center" valign="center">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="rec.get('unit', '')" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <!-- style="font-size: 10pt;" -->
+                <tr>
+                    <td style="border-left: 2px solid #000000; font-size: x-small !important;" height="12" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">DATE/TIME:_________</font>
+                    </td>
+                    <td style="font-size: x-small !important; width: 70px;" colspan="2" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">COUNTED BY:______________________</font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="right" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">VERIFIED BY:</font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">____________________<br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" colspan="2" align="right" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">POSTED BY:___________________<br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000; font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                </tr>
+                <tr style="font-size: 10pt;">
+                    <td style="border-left: 2px solid #000000; font-size: x-small !important;" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">                                     NAME &amp; SIGNATURE</font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">                  NAME &amp; SIGNATURE</font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="width: 100px; font-size: x-small !important;" align="left" valign="middle" colspan="2">
+                        <font face="Times New Roman" size="1" color="#000000">NAME &amp; SIGNATURE</font>
+                    </td>
+                    <td style="border-right: 2px solid #000000; font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 2px solid #000000; border-left: 2px solid #000000" height="12" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000; border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="12" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="12" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- <td height="12" align="left" valign="bottom" colspan="10"><font face="Times New Roman" color="#000000">……………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………</font></td> -->
+                    <td height="12" align="left" valign="bottom" colspan="10" style="border-bottom: 1px dotted !important;">
+                        <font face="Times New Roman" color="#000000"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="12" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="18" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-top: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="10" height="21" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">MUTI GROUP OF COMPANIES</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="10" height="19" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Osmena Street, Koronadal City, South Cotabato</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="10" height="34" align="center" valign="middle">
+                        <b>
+                            <font face="Times New Roman" color="#000000">                                                                      INVENTORY COUNT TAG                                                               2nd copy</font>
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="27" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">Branch:<t t-esc="rec.get('branch_name', '')" />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="right" valign="middle">
+                        <font face="Times New Roman" color="#000000">Tag No.:</font>
+                    </td>
+                    <td align="left" valign="bottom" sdnum="1033;0;0000">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="rec.get('tag_no', '')" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="14" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="right" valign="bottom">
+                        <font face="Times New Roman" color="#000000">Shelf No.:</font>
+                    </td>
+                    <td align="left" valign="bottom" sdnum="1033;0;0000">
+                        <font face="Times New Roman" color="#000000">_______________________<br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Barcode</font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Product Description</font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Part No.</font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Unit</font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Actual count</font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="30" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="center">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="rec.get('barcode', '')" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 1px solid #000000" colspan="3" align="center" valign="center">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="'{}-{}'.format(rec.get('brand', ''),rec.get('name', ''))" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="center">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="rec.get('part_number', '')" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="center" valign="center">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="rec.get('unit', '')" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000; font-size: x-small !important;" height="12" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">DATE/TIME:_________</font>
+                    </td>
+                    <td style="font-size: x-small !important; width: 70px;" colspan="2" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">COUNTED BY:______________________</font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="right" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">VERIFIED BY:</font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">____________________<br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" colspan="2" align="right" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">POSTED BY:___________________<br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000; font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">                                     NAME &amp; SIGNATURE</font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">                  NAME &amp; SIGNATURE</font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="width: 70px" align="left" valign="middle" colspan="2">
+                        <font face="Times New Roman" size="1" color="#000000">NAME &amp; SIGNATURE</font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 2px solid #000000; border-left: 2px solid #000000" height="18" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000; border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- <td height="12" align="left" valign="bottom" colspan="10"><font face="Times New Roman" color="#000000">……………………………………………………………………………………………………………………………………………………………………………………………………………………………………………………</font></td> -->
+                    <td height="12" align="left" valign="bottom" colspan="10" style="border-bottom: 1px dotted !important;">
+                        <font face="Times New Roman" color="#000000"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="18" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-top: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="10" height="17" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">MUTI GROUP OF COMPANIES</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="10" height="17" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Osmena Street, Koronadal City, South Cotabato</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000" colspan="10" height="34" align="center" valign="middle">
+                        <b>
+                            <font face="Times New Roman" color="#000000">                                                                      INVENTORY COUNT TAG                                                               1st copy</font>
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="27" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">Branch:<t t-esc="rec.get('branch_name', '')" />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="right" valign="middle">
+                        <font face="Times New Roman" color="#000000">Tag No.:</font>
+                    </td>
+                    <td align="left" valign="bottom" sdnum="1033;0;0000">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="rec.get('tag_no', '')" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="14" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="right" valign="bottom">
+                        <font face="Times New Roman" color="#000000">Shelf No.:</font>
+                    </td>
+                    <td align="left" valign="bottom" sdnum="1033;0;0000">
+                        <font face="Times New Roman" color="#000000">_______________________<br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Barcode</font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="3" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Product Description</font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Part No.</font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan="2" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Unit</font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="middle">
+                        <font face="Times New Roman" color="#000000">Actual count</font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="30" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="center">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="rec.get('barcode', '')" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 1px solid #000000" colspan="3" align="center" valign="center">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="'{}-{}'.format(rec.get('brand', ''),rec.get('name', ''))" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" align="center" valign="center">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="rec.get('part_number', '')" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000" colspan="2" align="center" valign="center">
+                        <font face="Times New Roman" color="#000000">
+                            <t t-esc="rec.get('unit', '')" />
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000; font-size: x-small !important;" height="12" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">DATE/TIME:_________</font>
+                    </td>
+                    <td style="font-size: x-small !important; width: 70px;" colspan="2" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">COUNTED BY:______________________</font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="right" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">VERIFIED BY:</font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">____________________<br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" colspan="2" align="right" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">POSTED BY:___________________<br/>
+                        </font>
+                    </td>
+                    <td style="font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="border-right: 2px solid #000000; font-size: x-small !important;" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-left: 2px solid #000000" height="17" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">                                     NAME &amp; SIGNATURE</font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">                  NAME &amp; SIGNATURE</font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                    <td style="width: 70px" align="left" valign="middle" colspan="2">
+                        <font face="Times New Roman" size="1" color="#000000">NAME &amp; SIGNATURE</font>
+                    </td>
+                    <td style="border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br/>
+                        </font>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 2px solid #000000; border-left: 2px solid #000000" height="18" align="left" valign="bottom">
+                        <font face="Times New Roman" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000" align="left" valign="middle">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                    <td style="border-bottom: 2px solid #000000; border-right: 2px solid #000000" align="left" valign="bottom">
+                        <font face="Times New Roman" size="1" color="#000000">
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- </div> -->
+    </template>
+
+</odoo>

@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+scm_admin_stock_count_tag,Admin StockCountTag,model_stock_count_tag,scm_count_tag_admin,1,1,1,1
+scm_admin_stock_count_tag_line,Admin StockCountTagLine,model_stock_count_tag_line,scm_count_tag_admin,1,1,1,1
+scm_admin_count_tag_trans,Admin CountTagTrans,model_count_tag_transient,scm_count_tag_admin,1,1,1,1
+
+scm_user_stock_count_tag,User StockCountTag,model_stock_count_tag,scm_count_tag_user,1,1,1,1
+scm_user_stock_count_tag_line,User StockCountTagLine,model_stock_count_tag_line,scm_count_tag_user,1,1,1,1
+scm_user_count_tag_trans,User CountTagTrans,model_count_tag_transient,scm_count_tag_user,1,1,1,1

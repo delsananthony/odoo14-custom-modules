@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- count form view -->
+    <record id="count_tag_view_form" model="ir.ui.view">
+        <field name="name">count.view.form</field>
+        <field name="model">count.tag.transient</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <p>Please enter the beginning series to be used</p>
+                <group>
+                    <field name="stock_count_tag_id" invisible="1"/>
+                    <field name="location" invisible="1"/>
+                    <field name="series" string="Beginning Sequence"/>
+                    <field name="ranges" options='{"no_open": True}' readonly="1" />
+                    <!-- <field name="ranges" domain="[('stock_count_tag_id', '=', stock_count_tag_id), ('state', '=', 'unused')]"/> -->
+                </group>
+                <footer>
+                    <button name="generate_report" string="Print" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="count_tag_wizard_action" model="ir.actions.act_window">
+        <field name="name">Count Tag Wizard</field>
+        <field name="res_model">count.tag.transient</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="count_tag_view_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- <delete model="ir.rule" id="stock_count_tag_filter"/> -->
+        <record model="ir.rule" id="stock_count_tag_filter">
+            <field name="name">Stock Count Tag Filter By Company</field>
+            <field name="model_id" ref="model_stock_count_tag"/>
+            <field name="groups" eval="[(4, ref('scm_count_tag_user'))]"/>
+            <field name="domain_force">[('company_id', '=', user.company_id.id)]</field>
+        </record>
+
+        <delete model="ir.rule" id="stock_count_tag_branch_filter" />
+        <!-- <record model="ir.rule" id="stock_count_tag_branch_filter">
+            <field name="name">Stock Count Tag Filter By Branch</field>
+            <field name="model_id" ref="model_stock_count_tag"/>
+            <field name="groups" eval="[(4, ref('scm_count_tag_user'))]"/>
+            <field name="domain_force">[('location', '=', user.branch_id.location_id)]</field>
+        </record> -->
+
+    </data>
+</odoo>
